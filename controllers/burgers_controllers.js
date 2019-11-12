@@ -2,31 +2,35 @@ var express = require("express");
 
 var router = express.Router();
 
-var burgers = require("../models/burger.js");
+var burgers = require("../models/burgers.js");
 
 router.get("/", function (req, res) {
-  // burgers.all(function(data) {
-    // var hbsObject = {
-    //   burgers: data
-    // };
-    // console.log(hbsObject);
-    res.render("index");
-  })
-// });
+  burgers.all(function (data) {
+    var hbsObject = {
+      burgers: data
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
+  })  
+});
 
-router.post("/api/burgers", function(req, res) {
-  // console.log(res.body);
-  burgers.create([
-    "name", "eaten"
-  ], [
+
+router.post("/api/burger", function (req, res) {
+
+  console.log(res.body);
+
+  burgers.create(["name", "eaten"], [
     req.body.name, req.body.eaten
-  ], function(result) {
+  ], function (result) {
 
     console.log(result)
+
     res.json({ id: result.insertId });
   });
 });
-router.put("/api/burgers/:id", function(req, res) {
+
+
+router.put("/api/burgers/:id", function (req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
@@ -36,7 +40,7 @@ router.put("/api/burgers/:id", function(req, res) {
       eaten: req.body.eaten
     },
     condition,
-    function(result) {
+    function (result) {
       if (result.changedRows === 0) {
         // If no rows were changed, then the ID must not exist, so 404
         return res.status(404).end();
@@ -46,8 +50,6 @@ router.put("/api/burgers/:id", function(req, res) {
     }
   );
 });
-
-
 
 
 // Export routes for server.js to use.

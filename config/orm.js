@@ -74,8 +74,6 @@ var orm = {
 
             cb(result);
         });
-
-
     }
 }
 
