@@ -10,13 +10,15 @@ router.get("/", function (req, res) {
       burgers: data
     };
     console.log(hbsObject);
+    console.log(burgers);
     res.render("index", hbsObject);
   })  
 });
 
 
-router.post("/api/burger", function (req, res) {
+router.post("/api/burgers", function (req, res) {
 
+  //res.body is undefined
   console.log(res.body);
 
   burgers.create(["name", "eaten"], [

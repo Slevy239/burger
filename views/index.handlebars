@@ -2,23 +2,31 @@
 
 <h2>Burgers that are not devoured!</h2>
 
-<ul>
-  {{#each burgers}}
-    {{!-- {{#unless devoured}}
+<div class="row">
+  <div class="col-4">
+    <h2>To Be Eaten!</h2>
+    <ul>
+      {{#each burgers}}
+      {{#unless devoured}}
       {{> burgers/burger-block devoured=true}}
-    {{/unless}} --}}
-  {{/each}}
-</ul>
+      {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+<div class="col-4"></div>
+<div class="col-4">
 
-<h2>Burgers that are devoured!</h2>
+  <h2>Burgers that are devoured!</h2>
 
-<ul>
-  {{#each burgers}}
-    {{!-- {{#if sleepy}}
+  <ul>
+    {{#each burgers}}
+    {{#if sleepy}}
       {{> burgers/burger-block devoured=false}}
-    {{/if}} --}}
-  {{/each}}
-</ul>
+    {{/if}} 
+    {{/each}}
+  </ul>
+</div>
+</div>
 
 <h2>Add a Burger</h2>
 <form class="create-form">
@@ -27,6 +35,6 @@
     <label for="ca">Burger Name:</label>
     <input type="text" id="name" name="name">
   </div>
-  
+
   <button type="submit" id="submit">Add Burger</button>
 </form>
