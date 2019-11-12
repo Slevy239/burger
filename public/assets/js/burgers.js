@@ -8,7 +8,7 @@ $(function () {
 
     };
     console.log(newBurger)
-    $.ajax("/api/burger/", {
+    $.ajax("/api/burgers/", {
       type: "POST",
       data: newBurger
     }).then(
@@ -29,7 +29,7 @@ $(function () {
     console.log("id: " + id);
     console.log("eaten: " + newState.eaten);
 
-    $.ajax("/api/burger/" + id, {
+    $.ajax("/api/burgers/" + id, {
       type: "PUT",
       data: newState
     }).then(
