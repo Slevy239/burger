@@ -20,12 +20,18 @@ router.get("/", function (req, res) {
 // });
 
 router.post("/burgers/create", function (req, res) {
-  burger.create(req.body.burger_name, function (result) {
-    // console.log(result)
-    // res.redirect("/");
-    res.redirect("/")
-  });
+  console.log(res.body);
+  burger.create([
+    "name", "eaten"
+  ], [
+    req.body.name, req.body.eaten
+  ], function (result) {
+    console.log(result);
+    res.json({ id: result.insertId });
+  })
 });
+
+
 
 router.put("/burgers/:id", function(req, res) {
   burger.update(req.params.id, function(result) {
