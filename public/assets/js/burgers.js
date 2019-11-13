@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
   $(".submit").on("submit", function (event) {
+    console.log("clicked")
     event.preventDefault();
 
     var burger_id = $(this).children(".burger_id").val();
@@ -14,20 +15,20 @@ $(document).ready(function () {
   });
 
   $("#eat").on("click", function (event) {
-    console.log("clicked")
     event.preventDefault();
+
     var id = $(this).data("id");
-    var newDevoured = $(this).data("neweaten") === false;
+    var newDevoured = $(this).data("neweaten");
 
     var newState = {
-      devoured: newDevoured
+      devoured: 1
     };
-    $.ajax("/burgers/create/" + id, {
+    $.ajax("/burgers/" + id, {
       type: "PUT",
       data: newState
     }).then(
       function () {
-        console.log("state changed to " + newState.devoured);
+        console.log("state changed to " + newDevoured);
         location.reload()
       }
     )

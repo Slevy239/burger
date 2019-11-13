@@ -20,19 +20,18 @@
 			<ol>
 				{{#each burgers}}
 				{{#unless this.devoured}}
-				{{> names}}
+				{{> burgers/burger-block devoured=false}}
 				{{/unless}}
 				{{/each}}
 			</ol>
 		</div>
 
 		<div class="col">
-			<h2>Eaten</h2>
+			<h2>Eaten!</h2>
 			<ul>
-
-				{{#each burger_data}}
-				{{#if devoured}}
-				{{> burger-block devour=true}}
+				{{#each burgers}}
+				{{#if eaten}}
+				{{> burgers/burger-block devoured=true}}
 				{{/if}}
 				{{/each}}
 			</ul>
