@@ -1,28 +1,23 @@
 var express = require("express");
-var path = require("path")
 
-var PORT = process.env.PORT || 8080;
-
+var PORT = process.env.PORT || 8000;
 var app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
-app.use('/public',express.static(path.join(__dirname + "/public")));
+app.use(express.static("public"));
 
-// Parse application body as JSON
+// Parse application body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Set Handlebars.
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes and give the server access to them.
-var routes = require("./controllers/burgers_controllers.js");
+var routes = require("./controllers/burgers_controllers");
 
 app.use(routes);
-
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
   // Log (server-side) when our server has started
