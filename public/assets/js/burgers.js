@@ -1,16 +1,18 @@
-$(document).ready(function () {
-  $(".create-form").on("submit", function (event) {
-        event.preventDefault();
+$(document).ready(function() {
+    
+  $(".devour-form").on("submit", function(event) {
+    event.preventDefault();
 
-    var newBurger ={
-     name: $("#name").val(),
-     eaten: 0
+    var newBurger = {
+      name: $("#name").val(),
+      devoured: 0
     }
-    var thisBurger = $(this).children("#name").val();
+
     console.log(newBurger);
+    // var burger_id = $(this).children(".burger_id").val();
     $.ajax({
       method: "PUT",
-      url: "/burgers/" + thisBurger
+      url: "/burgers/" + newBurger
     }).then(function(data) {
       // reload page to display devoured burger in proper column
       location.reload();
@@ -18,4 +20,3 @@ $(document).ready(function () {
 
   });
 });
-
