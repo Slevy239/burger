@@ -2,30 +2,31 @@ var express = require("express");
 
 var router = express.Router();
 
-var burgers = require("../models/burger.js");
+var burger = require("../models/burger.js");
 
 router.get("/", function (req, res) {
-  burgers.all(function (data) {
-    var hbsObject = {
+
+  burger.all(function (data) {
+    console.log(data);
+    let burgerObj = {
       burgers: data
-    };
-    console.log(hbsObject);
-    console.log(burgers);
-    res.render("index", hbsObject);
-  })  
-});
+    }
+    res.render("index", burgerObj)
+  })
+})
+
 
 
 router.post("/api/burgers", function (req, res) {
 
-  //res.body is undefined
-  console.log(res.body);
-
-  burgers.create(["name", "eaten"], [
+  burger.create([
+    "name", "eaten"
+  ], [
     req.body.name, req.body.eaten
   ], function (result) {
+    console.log("hello")
 
-    console.log(result)
+    // console.log(result)
 
     res.json({ id: result.insertId });
   });
@@ -37,7 +38,7 @@ router.put("/api/burgers/:id", function (req, res) {
 
   console.log("condition", condition);
 
-  burgers.update(
+  burger.update(
     {
       eaten: req.body.eaten
     },

@@ -1,19 +1,24 @@
 $(function () {
+
+
   $(".create-form").on("submit", function (event) {
     event.preventDefault();
 
     var newBurger = {
       name: $("#name").val(),
       eaten: 0
-
     };
-    console.log(newBurger)
-    $.ajax("/api/burgers/", {
+
+    console.log(newBurger);
+    
+    $.ajax("/api/burgers", {
       type: "POST",
       data: newBurger
     }).then(
       function () {
         console.log("added new burger");
+
+        // $("#name").val("")
         location.reload();
       }
     )
