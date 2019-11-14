@@ -1,47 +1,36 @@
 ul {
     list-style-type: none;
-  }
+}
 
-  .jumbotron {
-      /* background-color: rgb(8, 166, 97); */
-      background-color: bl;
-      border-bottom: 5px solid black;
-      border-left: 5px solid black;
-      border-right: 5px solid black;
+.jumbotron {
+    background-color: bl;
+    border-bottom: 5px solid black;
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+}
 
+h1, h3 {
+    color: rgb(8, 166, 97);
+}
 
-  }
-
-  h1, h3 {
-      color: rgb(8, 166, 97);
-  }
-
-  button#text-enter-button, button#eat {
+button#text-enter-button, button#eat {
     background: rgb(8, 166, 97);
 }
+
 body {
-    background-color:rgb(46,43,42);
+    background-color: rgb(46, 43, 42);
 }
 
 h2 {
-    color: rgb(203,65,38);
-    border-bottom: solid 5px rgb(
-        8, 166, 97);
+    color: rgb(203, 65, 38);
+    border-bottom: solid 5px rgb( 8, 166, 97);
 }
-p{
+
+p {
     font-size: larger;
-    color: rgb(203,65,38);
-
+    color: rgb(203, 65, 38);
 }
-
 
 img {
     width: 20%;
 }
-  /* rgb(1,1,1) black */
-
-  /* rgb(8,166,97)  green*/
-
-  /* rgb(203,65,38) orange */
-
-  /* rgb(46,43,42) dark brown */
