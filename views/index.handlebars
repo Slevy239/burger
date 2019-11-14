@@ -2,9 +2,9 @@
 	<div class="jumbotron">
 
 		<div class="text-center">
-				<img src="../public/assets/images/burger.jpg" alt="BURGER!">
-				<h1 class="text-center">Burgers!</h1>
-			</div>
+			<img src="../public/assets/images/burger.jpg" alt="BURGER!">
+			<h1 class="text-center">Burgers!</h1>
+		</div>
 	</div>
 
 	<br>
@@ -12,10 +12,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center enter_section">
-					<h3>Click submit to add your favorite burger to list!</h3>
+				<h3>Click submit to add your favorite burger to list!</h3>
 				<form action="/burgers/create" method="POST" id="submit">
 					<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
-						{{!-- <br> --}}
+					{{!-- <br> --}}
 					<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
 				</form>
 			</div>
@@ -31,7 +31,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col text-center">
-			<h2>To Be Eaten!</h2>
+			<h2>To Be Eaten:</h2>
 			<ul class="unstyled">
 				{{#each burgers}}
 				{{#unless this.devoured}}
@@ -42,7 +42,7 @@
 		</div>
 
 		<div class="col text-center">
-			<h2>Eaten!</h2>
+			<h2>Eaten:</h2>
 			<ul class="unstyled">
 				{{#each burgers}}
 				{{#if devoured}}

@@ -2,7 +2,7 @@
 	{{!-- {{name}} --}}
 	<p>{{this.burger_name}}
 		<button id="eat" data-id="{{id}}" data-newburger="{{devoured}}">
-			DEVOUR!
+			{{#if devoured}}Already Eaten{{else}}DEVOUR! {{/if}}
 		</button>
 	</p>
 </li>
