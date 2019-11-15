@@ -23,11 +23,14 @@ $(document).ready(function () {
     event.preventDefault();
     //jQuery pulls clicked id and column value
     var id = $(this).data("id");
-    var devour = 1
+
+    var newState = {
+      devoured: 1
+    }
 
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
-      data: devour
+      data: newState
     }).then(
       function () {
         console.log("devoured")
