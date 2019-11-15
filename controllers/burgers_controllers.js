@@ -17,22 +17,32 @@ router.get("/", function (req, res) {
 
 //post route. 
 //Posts Burger_name to database
-router.post("/burgers/create", function (req, res) {
-  burger.create(req.body.burger_name, function (result) {
-    console.log(result);
-    //redirects to root
-    res.redirect("/")
-  })
+router.post("/api/burgers", function (req, res) {
+  burger.create([
+    "burger_name", "devoured"
+  ],
+    [
+      req.body.name, req.body.devoured
+    ], function (result) {
+      console.log(result);
+      //redirects to root
+      res.json(({ id: result.insertId }))
+    })
 })
 
 //PUT route
 //updates the in database
-router.put("/burgers/:id", function(req, res) {
+router.put("/api/burgers/:id", function (req, res) {
+  var condition = "id = " + req.params.id;
 
 
-  burger.update(req.params.id, function(result) {
-    console.log(result);
-    res.sendStatus(200);
+  burger.update(condition, function (result) {
+    if (result.changedRows === 0) {
+      return res.status(404).end();
+    } else {
+      console.log(result);
+      res.sendStatus(200);
+    }
   });
 });
 
