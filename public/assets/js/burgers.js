@@ -1,6 +1,5 @@
 $(document).ready(function () {
-
-
+// 
 //Submit event for input data
   $(".submit").on("submit", function (event) {
     console.log("clicked")

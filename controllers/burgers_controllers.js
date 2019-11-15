@@ -10,7 +10,7 @@ router.get("/", function (req, res) {
     var hbsObject = {
       burgers: data
     };
-    // console.log(hbsObject)
+    console.log(hbsObject)
     res.render("index", hbsObject)
   });
 });
@@ -20,6 +20,7 @@ router.get("/", function (req, res) {
 router.post("/burgers/create", function (req, res) {
   burger.create(req.body.burger_name, function (result) {
     console.log(result);
+    //redirects to root
     res.redirect("/")
   })
 })
@@ -27,6 +28,8 @@ router.post("/burgers/create", function (req, res) {
 //PUT route
 //updates the in database
 router.put("/burgers/:id", function(req, res) {
+
+
   burger.update(req.params.id, function(result) {
     console.log(result);
     res.sendStatus(200);

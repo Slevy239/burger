@@ -10,12 +10,11 @@ var burger = {
     });
   },
   //create data 
-  create: function(name, cb) {
-    orm.create("burgers", [
-      "burger_name", "devoured"
-    ], [
-      name, false
-    ], cb);
+  create: function(cols, vals, cb) {
+    orm.update("burgers", cols, vals, function(res) {
+      cb(res)
+    })
+  
   },
   //update ID to true
   update: function(id, cb) {
