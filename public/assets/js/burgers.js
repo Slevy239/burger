@@ -33,7 +33,7 @@ $(document).ready(function () {
       data: newState
     }).then(
       function () {
-        console.log("devoured")
+        // console.log("devoured")
         location.reload()
       }
     )
